@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
         type:String,
         required: true,
         trim: true,
-        // unique: 1
+        unique: true
     },
     password:{
         type:String,
@@ -26,17 +26,17 @@ const userSchema = mongoose.Schema({
         required: true,
         maxlength:100
     },
-    cart:{
-        type:Array,
+    cart: {
+        type: Array,
         default: []
     },
-    history:{
-        type:String,
-       default: []
+    history: {
+        type: Array,
+        default: []
     },
-    role:{
-        type:Number,
-        default:0
+    role: {
+        type: Number,
+        default: 0
     },
     token:{
         type:String
@@ -95,4 +95,4 @@ userSchema.statics.findByToken = function(token, cb){
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = { User }
+module.exports = { User } 

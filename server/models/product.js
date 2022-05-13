@@ -3,20 +3,20 @@ const Schema = mongoose.Schema;
 
 const productSchema = mongoose.Schema({
     name:{
-        type: String,
         required: true,
-        // unique: true,
-        maxlength: 100
+        type: String,
+        unique: 1,
+        maxlength:100
     },
     description:{
-        type: String,
         required: true,
-        maxlength: 100000
+        type: String,
+        maxlength:100000
     },
     price:{
         required: true,
         type: Number,
-        maxlength: 250
+        maxlength: 255
     },
     brand:{
         type: Schema.Types.ObjectId,
@@ -29,7 +29,7 @@ const productSchema = mongoose.Schema({
     },
     available:{
         required: true,
-        type: Boolean 
+        type: Boolean
     },
     wood:{
         type: Schema.Types.ObjectId,
@@ -43,7 +43,7 @@ const productSchema = mongoose.Schema({
     sold:{
         type: Number,
         maxlength: 100,
-        default:0
+        default: 0
     },
     publish:{
         required: true,
@@ -53,7 +53,7 @@ const productSchema = mongoose.Schema({
         type: Array,
         default:[]
     }
-},{timestamps: true});
+},{timestamps:true});
 
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product',productSchema);
 module.exports = { Product }

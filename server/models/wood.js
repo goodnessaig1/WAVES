@@ -4,7 +4,7 @@ const woodSchema = mongoose.Schema({
     name:{
         required: true,
         type: String,
-        //unique: true,
+        unique: 1,
         maxlength:100
     }
 })
